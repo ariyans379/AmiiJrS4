@@ -18,7 +18,7 @@ import wikipedia
 import goslate
 
 cl = LINETCR.LINE()
-cl.login(qr=true)
+cl.login(token="En0w2kXZC0rLn6KsvZB1.TA54dxsS3sWfT1dVF7sUmq.igB1RNfmbE2P1/ZsoLTC+vs9qeDqY6GJqrtQyscfDW8=")
 cl.loginResult()
 
 print "Login Success Boss"
