@@ -21,7 +21,7 @@ cl.loginResult()
 
 ki = kk = kc = cl 
 
-print "succes plak"
+print "Iphenk login success"
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
