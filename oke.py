@@ -18,7 +18,7 @@ import wikipedia
 import goslate
 
 cl = LINETCR.LINE()
-cl.login(token="En0w2kXZC0rLn6KsvZB1.TA54dxsS3sWfT1dVF7sUmq.igB1RNfmbE2P1/ZsoLTC+vs9qeDqY6GJqrtQyscfDW8=")
+cl.login(qr=True)
 cl.loginResult()
 
 print "Login Success Boss"
@@ -35,7 +35,7 @@ helpMessage ="""Ꭲ̡̦͎͇͈̘̻̎̉̅́̒͗ͅHelp CommandᎢ̦͎͇̎̉̅́̒͗
 ⌨️ sᴇᴛ - ɢʀᴏᴜᴘ sᴇᴛᴛɪɴɢs
 """
 
-hgMessage ="""[👨‍👩‍👧‍👦] - ʜᴇʟᴘ ғᴏʀ ɢʀᴏᴜᴘ - [👨‍👩‍👧‍👦]
+hgssage ="""[👨‍👩‍👧‍👦] - ʜᴇʟᴘ ғᴏʀ ɢʀᴏᴜᴘ - [👨‍👩‍👧‍👦]
 ⌨  ʜᴀɪ         - Tᴀɢ Sᴇᴍᴜᴀ Mᴇᴍʙᴇʀ Gʀᴜᴘ
 ⌨  ᴄɪᴅᴜᴋ     - Mᴇᴍʙᴜᴀᴛ Sᴇᴛ Sɪᴅᴇʀ
 ⌨  ɪɴᴛɪᴘ      - Mᴇɴɢɪɴᴛɪᴘ Sɪᴅᴇʀ
@@ -57,7 +57,7 @@ haMessage = """[👤] - ʜᴇʟᴘ ғᴏʀ ᴀᴅᴍɪɴ - [👤]
 ⌨️  Gʟɪᴅ          - Dᴀғᴛᴀʀ Gʀᴜᴘ Dᴇɴɢᴀɴ Gʀᴜᴘ
 ⌨️  Fʟɪsᴛ         - Dᴀғᴛᴀʀ Tᴇᴍᴀɴ 
 ⌨  Cᴀɴᴄᴇʟ     - Cᴀɴᴄᴇʟ Pᴇɴᴅɪɴɢ Gʀᴜᴘ Rᴏᴍʙᴏɴɢᴀɴ
-⌨  B               - Cᴀɴᴄᴇʟ Pᴇɴᴅɪɴɢ Gʀᴜᴘ Sᴀᴛᴜ²
+⌨  B!!!               - Cᴀɴᴄᴇʟ Pᴇɴᴅɪɴɢ Gʀᴜᴘ Sᴀᴛᴜ²
 ⌨  Mɪᴅ @      - Mᴇɴᴅᴀᴘᴀᴛᴋᴀɴ Mɪᴅ Oʀᴀɴɢ
 ⌨  Iɴᴠɪᴛᴇ       - Iɴᴠɪᴛᴇ Vɪᴀ Sᴇɴᴅ Cᴏɴᴛᴀᴄᴛ
 ⌨  Iɴᴠɪᴛᴇ:      - Vɪᴀ MID
@@ -86,7 +86,7 @@ hkMessage ="""[💀] - ʜᴇʟᴘ ғᴏʀ ᴋɪᴄᴋᴇʀ - [💀]
 ⌨  ᴛᴀᴍᴘᴏʟ sᴇᴍᴜᴀ
 ⌨  ᴛᴀᴍᴘᴏʟ @       - Vɪᴀ Tᴀɢ
 ⌨  ᴛᴀᴍᴘᴏʟ:           - Vɪᴀ MID
-⌨️  ᴛᴀᴍᴘᴏʟ            - Mᴇɴᴀᴍᴘᴏʟ Bᴀɴʟɪsᴛ"""
+⌨️  .ᴛᴀᴍᴘᴏʟ            - Mᴇɴᴀᴍᴘᴏʟ Bᴀɴʟɪsᴛ"""
 
 huMessage = """[🛠️] - ʜᴇʟᴘ ғᴏʀ ᴜᴛɪʟɪᴛʏ - [🛠️]
 ⌨️  .ᴄᴄ         - Cᴏɴᴛᴀᴄᴛ ʏᴀɴɢ Mᴇᴍʙᴜᴀᴛ Cʀᴀsʜ
@@ -94,13 +94,13 @@ huMessage = """[🛠️] - ʜᴇʟᴘ ғᴏʀ ᴜᴛɪʟɪᴛʏ - [🛠️]
 ⌨  Bᴄɢ        - Bᴄ Kᴇ Sᴇᴍᴜᴀ Gʀᴜᴘ
 ⌨  Sᴘᴀᴍ ᴏɴ/ᴏғғ 「ᴊᴜᴍʟᴀʜ」「 ᴛᴇxᴛ」
 ⌨  Uɴɪ
-⌨  ᴅsᴘ                - Cᴇᴋ Sᴘᴇᴇᴅ
+⌨  Speed/Sp         - Cᴇᴋ Sᴘᴇᴇᴅ
 ⌨️  Mʏɴᴀᴍᴇ       - Mᴇɴɢᴜʙᴀʜ Nᴀᴍᴀ Aɴᴅᴀ
 ⌨️  Mʏʙɪᴏ          - Mᴇɴɢᴜʙᴀʜ Bɪᴏ Aɴᴅᴀ 
 ⌨  Mʏᴄᴏᴘʏ @    - Cᴏᴘʏ Pʀᴏғɪʟᴇ ᴏʀᴀɴɢ
 ⌨  Mʏʙᴀᴄᴋᴜᴘ    - Bᴀᴄᴋᴜᴘ Pʀᴏғɪʟᴇ
 ⌨️  ŤĽ:           - Mᴇᴍᴘᴏsᴛɪɴɢ Sᴇsᴜᴀᴛᴜ ᴅɪ TL
-⌨️  ɴɢᴏᴍᴏɴɢ - Mᴇɴɢᴜʙᴀʜ Tᴇxᴛ Mᴇɴᴊᴀᴅɪ VN
+⌨️  /say - Mᴇɴɢᴜʙᴀʜ Tᴇxᴛ Mᴇɴᴊᴀᴅɪ VN
 ⌨️  Wᴏʏ @  -  Mᴇɴɢsᴘᴀᴍ Pᴇsᴀɴ Vɪᴀ Tᴀɢ
 ⌨️  ᴄɪᴜᴍ (ᴍɪᴅ) (ᴊᴜᴍʟᴀʜ sᴘᴀᴍ - 999)
 ⌨️  sᴘᴀᴍ ᴏɴ/ᴏғғ (ᴊᴜᴍʟᴀʜ sᴘᴀᴍ) (ᴛᴇxᴛ)
@@ -127,16 +127,14 @@ hpMessage = """[🛡️] - ʜᴇʟᴘ ғᴏʀ ᴘʀᴏᴛᴇᴄᴛ - [🛡️]
 ⌨  [ᴘʀᴏᴛᴇᴄᴛ ᴏɴ/ᴏғғ]			   
 ⌨  [ǫʀᴘʀᴏᴛᴇᴄᴛ ᴏɴ/ᴏғғ]			   
 ⌨  [ɪɴᴠɪᴛᴇᴘʀᴏᴛᴇᴄᴛ ᴏɴ/ᴏғғ]			   
-⌨  [cᴀɴᴄᴇʟᴘʀᴏᴛᴇᴄᴛ ᴏɴ/ᴏғғ]		   
-⌨  [Aᴅᴅ/Rᴇᴍᴏᴠᴇ sᴛᴀғғ @]	  
-⌨️  [Sᴛᴀғғʟɪsᴛ]"""
+⌨  [cᴀɴᴄᴇʟᴘʀᴏᴛᴇᴄᴛ ᴏɴ/ᴏғғ]"""
 
 KAC=[cl]
 mid = cl.getProfile().mid
 Bots = [mid,"ub5ae780d74acdd2c05b750ef7fb4ae31"]
 admsa = "ub5ae780d74acdd2c05b750ef7fb4ae31"
 admin = "ub5ae780d74acdd2c05b750ef7fb4ae31"
-crash = "ub5ae780d74acdd2c05b750ef7fb4ae31"
+crash = "u78e5efff85bf97393cc2c4b8ecf93d25"
 
 wait = {
     'contact':True,
@@ -145,7 +143,7 @@ wait = {
     'leaveRoom':True,
     'timeline':True,
     'autoAdd':True,
-    'message':" ",
+    'message':" Thank For Add Me\n\nSelf Creator ʙʏ Ꭲ̡̦͎͇͈̘̻̎̉̅́̒͗ͅAmiiᎢ̡̦͎͇͈̘̻̎̉̅́̒͗ͅ\n\nline://ti/p/~amiiqila",
     "lang":"JP",
     "comment":"Aᴜᴛᴏ Lɪᴋᴇ ʙʏ Ꭲ̡̦͎͇͈̘̻̎̉̅́̒͗ͅAmiiᎢ̡̦͎͇͈̘̻̎̉̅́̒͗ͅ\n\nline://ti/p/~amiiqila",
     "commentOn":True,
@@ -512,7 +510,7 @@ def bot(op):
                 else:
                     cl.sendText(msg.to,"Can not be used outside the group")
                     
-            elif msg.text in ["Mangat","B"]:
+            elif msg.text in ["B!!!"]:
                 if msg.toType == 2:
                     group = cl.getGroup(msg.to)
                     gMembMids = [contact.mid for contact in group.invitee]
@@ -673,14 +671,14 @@ def bot(op):
                 msg.contentMetadata = {"mid":mmid}
                 cl.sendMessage(msg)
 
-            elif "cium " in msg.text:
-                korban = msg.text.replace("cium ","")
+            elif "Cium! " in msg.text:
+                korban = msg.text.replace("Cium! ","")
                 korban2 = korban.split()
                 midd = korban2[0]
                 jumlah = int(korban2[1])
                 if jumlah <= 999:
                     for var in range(0,jumlah):
-                        cl.sendText(midd,"Ꭲ̡̦͎͇͈̘̻̎̉̅́̒͗ͅϵѧᴍ̸̩̟̗͎̯͙̺̺̜̬̙̟̀̑̓͋̐͆͌̓̒́̒͗͒͑̚͟͜ᎶʀҽѧᴛᏴøᴛ̢͓̹̗̘̠̪̖͗̃̄̅̆̽̀̕͜͞ NIH CIKA~")
+                        cl.sendText(midd,"Ꭲ̡̦͎͇͈̘̻̎̉̅́̒͗ͅϵѧᴍ̸̩̟̗͎̯͙̺̺̜̬̙̟̀̑̓͋̐͆͌̓̒́̒͗͒͑̚͟͜Ᏼøᴛ̢͓̹̗̘̠̪̖͗̃̄̅̆̽̀̕͜͞ NIH CIKA~")
                 else:
                     cl.sendText(msg.to, "Kebanyakan gblk! ")
                 print "T E R S P A M"
@@ -1012,12 +1010,12 @@ def bot(op):
                 else:md+="▩ Cᴀɴᴄᴇʟᴘʀᴏᴛᴇᴄᴛ → ✗\n"
                 if wait["likeOn"] == True: md+="▩ Aᴜᴛᴏ ʟɪᴋᴇ → ✓\n"
                 else:md+="▩ ʟɪᴋᴇ → ✗\n" 
-                if wait["tag"] == True: md+="▩ Tᴀɢ → ✓\n\nPᴏᴡᴇʀᴇᴅ ʙʏ:\nᎢ̡̦͎͇͈̘̻̎̉̅́̒͗ͅϵѧᴍ̸̩̟̗͎̯͙̺̺̜̬̙̟̀̑̓͋̐͆͌̓̒́̒͗͒͑̚͟͜ᎶʀҽѧᴛᏴøᴛ̢͓̹̗̘̠̪̖͗̃̄̅̆̽̀̕͜͞" 
-                else:md+="▩ Tᴀɢ → ✗\n\nPᴏᴡᴇʀᴇᴅ ʙʏ:\nᎢ̡̦͎͇͈̘̻̎̉̅́̒͗ͅϵѧᴍ̸̩̟̗͎̯͙̺̺̜̬̙̟̀̑̓͋̐͆͌̓̒́̒͗͒͑̚͟͜ᎶʀҽѧᴛᏴøᴛ̢͓̹̗̘̠̪̖͗̃̄̅̆̽̀̕͜͞" 
+                if wait["tag"] == True: md+="▩ Tᴀɢ → ✓\n\nPᴏᴡᴇʀᴇᴅ ʙʏ:\nᎢ̡̦͎͇͈̘̻̎̉̅́̒͗ͅϵѧᴍ̸̩̟̗͎̯͙̺̺̜̬̙̟̀̑̓͋̐͆͌̓̒́̒͗͒͑̚͟͜Ᏼøᴛ̢͓̹̗̘̠̪̖͗̃̄̅̆̽̀̕͜͞" 
+                else:md+="▩ Tᴀɢ → ✗\n\nPᴏᴡᴇʀᴇᴅ ʙʏ:\nᎢ̡̦͎͇͈̘̻̎̉̅́̒͗ͅϵѧᴍ̸̩̟̗͎̯͙̺̺̜̬̙̟̀̑̓͋̐͆͌̓̒́̒͗͒͑̚͟͜Ᏼøᴛ̢͓̹̗̘̠̪̖͗̃̄̅̆̽̀̕͜͞" 
                 cl.sendText(msg.to,md)
                 #cl.sendText(msg.to,"ɪᴅ ʟɪɴᴇ: line://ti/p/~amiiqila_\n\nʙɪʟᴀ ᴀᴅᴀ ᴘᴇʀʟᴜ ᴘᴄ ᴋᴏɴᴛᴀᴋ ᴅɪʙᴀᴡᴀʜ 😁")
-                msg.contentType = 13
-                msg.contentMetadata = {'mid': 'u78e5efff85bf97393cc2c4b8ecf93d25'}
+                #msg.contentType = 13
+                #msg.contentMetadata = {'mid': crash}
                 #cl.sendMessage(msg)
             
             elif msg.text in ["Like on"]:
@@ -1964,7 +1962,7 @@ def bot(op):
                 else:
                     cl.sendText(msg.to,"Silahkan Aktifkan Nama")
 
-            elif msg.text == "ciduk":
+            elif msg.text == "Ciduk":
                 if msg.toType == 2:
                     cl.sendText(msg.to, "Mulai Menciduk Sider\nKetik 「intip」ntar gua intip Sidernya 😼\nBuat Yang liat Gausah Ketik intip\nPercuma, ga bakal muncul~\n\nPencidukan Dimulai Pada Tanggal dan Waktu:" + datetime.now().strftime('\n%Y/%m/%d %H:%M:%S'))
                     try:
@@ -1978,7 +1976,7 @@ def bot(op):
                         wait2['ROM'][msg.to] = {}
                         print wait2
                         
-            elif msg.text == "intip":
+            elif msg.text == "Intip":
                 if msg.toType == 2:
                     if msg.to in wait2['readPoint']:
                         if wait2["ROM"][msg.to].items() == []:
@@ -2117,7 +2115,7 @@ def bot(op):
                                 cl.sendText(msg,to,"Group cleanse")
                     
 #-------------TagALL Start---------------#
-            elif msg.text in ["sepi","dor","ngntd","ats","gembel","hai"]:
+            elif msg.text in ["Hai"]:
                 group = cl.getGroup(msg.to)
                 nama = [contact.mid for contact in group.members]
                 cb = ""
@@ -2141,7 +2139,7 @@ def bot(op):
 #-----------------------------------------------
     #-------------TagALL Finish-------------#           
 
-            elif "tampol semua" in msg.text:
+            elif "Tampol semua" in msg.text:
                   if msg.from_ in admin:
                        nk0 = msg.text.replace("tampol semua","")
                        nk1 = nk0.lstrip()
@@ -2425,8 +2423,8 @@ def bot(op):
                                 except Exception as e:
                                     print e
                                     
-            elif "ngomong " in msg.text:
-                say = msg.text.replace("ngomong ","")
+            elif "/say " in msg.text:
+                say = msg.text.replace("/say ","")
                 lang = 'id'
                 tts = gTTS(text=say, lang=lang)
                 tts.save("hasil.mp3")
@@ -2547,11 +2545,11 @@ def bot(op):
                     else:
                         cl.sendText(msg.to, "Out Of Range!")
 
-            elif msg.text in ["Dan sp","dsp"]:
+            elif msg.text in ["Sp","Speed"]:
                 start = time.time()
-                cl.sendText(msg.to, "Harap Bersabar, Modal Termux Doang...")
+                cl.sendText(msg.to, "Harap Bersabar...")
                 elapsed_time = time.time() - start
-                cl.sendText(msg.to, "Speed nya cuma %s detik." % (elapsed_time))
+                cl.sendText(msg.to, "%s detik." % (elapsed_time))
 
             elif msg.text.lower() == 'me':
                 msg.contentType = 13
@@ -2561,7 +2559,7 @@ def bot(op):
             elif cms(msg.text,["creator","Creator"]):
             	cl.sendText(msg.to,"Tunggu sebentar...")
                 msg.contentType = 13
-                msg.contentMetadata = {'mid': admin}
+                msg.contentMetadata = {'mid': crash}
                 cl.sendText(msg.to,"Kontak DiBawah adalah Pembuat Bot ini")
                 cl.sendMessage(msg)
                 cl.sendText(msg.to,"Kontak DiAtas adalah Pembuat Bot ini")
@@ -2709,7 +2707,7 @@ def bot(op):
                 except Exception as njer:
                 	cl.sendText(msg.to, str(njer))
 
-            elif msg.text in ["bqr"]:
+            elif msg.text in ["Bqr"]:
               if msg.from_ in admin:  
                 if msg.toType == 2:
                     group = cl.getGroup(msg.to)
@@ -2725,7 +2723,7 @@ def bot(op):
                     else:
                         cl.sendText(msg.to,"Can not be used for groups other than ô€œô€„‰")
             
-            elif msg.text in ["tqr"]:
+            elif msg.text in ["Tqr"]:
                 if msg.toType == 2:
                     group = cl.getGroup(msg.to)
                     group.preventJoinByTicket = True
@@ -2844,36 +2842,36 @@ def bot(op):
                 except:
                     pass
 #-----------------------------------------------------------#
-            elif msg.text in ["Respnsetime"]:
+            elif msg.text in ["Responsetime"]:
                 start = time.time()
                 cl.sendText(msg.to, "Waiting...")
                 elapsed_time = time.time() - start
-                cl.sendText(msg.to, "%sseconds" % (elapsed_time))
-                elapsed_time = time.time() - start
-                cl.sendText(msg.to, "%sseconds" % (elapsed_time))
-                elapsed_time = time.time() - start
-                cl.sendText(msg.to, "%sseconds" % (elapsed_time))
-                elapsed_time = time.time() - start
-                cl.sendText(msg.to, "%sseconds" % (elapsed_time))
-                elapsed_time = time.time() - start
+                #cl.sendText(msg.to, "%sseconds" % (elapsed_time))
+                #elapsed_time = time.time() - start
+                #cl.sendText(msg.to, "%sseconds" % (elapsed_time))
+                #elapsed_time = time.time() - start
+                #cl.sendText(msg.to, "%sseconds" % (elapsed_time))
+                #elapsed_time = time.time() - start
+                #cl.sendText(msg.to, "%sseconds" % (elapsed_time))
+                #elapsed_time = time.time() - start
             
-            elif msg.text.lower() == 'responsename':
+            elif msg.text.lower() == '.responsename':
                 profile = cl.getProfile()
                 text = profile.displayName
                 cl.sendText(msg.to, text)
-                profile = cl.getProfile()
-                text = profile.displayName
-                cl.sendText(msg.to, text)
-                profile = cl.getProfile()
-                text = profile.displayName
-                cl.sendText(msg.to, text)
-                profile = cl.getProfile()
-                text = profile.displayName
-                cl.sendText(msg.to, text)
+                #profile = cl.getProfile()
+                #text = profile.displayName
+                #cl.sendText(msg.to, text)
+                #profile = cl.getProfile()
+                #text = profile.displayName
+                #cl.sendText(msg.to, text)
+                #profile = cl.getProfile()
+                #text = profile.displayName
+                #cl.sendText(msg.to, text)
 
 #------------------------------------------------------------------#	
 
-            elif "tampol " in msg.text:
+            elif "Tampol " in msg.text:
              if msg.from_ in admin:
                 key = eval(msg.contentMetadata["MENTION"])
                 key["MENTIONEES"][0]["M"]
@@ -2909,7 +2907,7 @@ def bot(op):
                             pass
                 print "[Command]dp executed"			
  #------------------------------------------------------------------#
-            elif ("ban " in msg.text):
+            elif ("Ban " in msg.text):
               if msg.from_ in admin:
                 key = eval(msg.contentMetadata["MENTION"])
                 key["MENTIONEES"][0]["M"]
@@ -2925,7 +2923,7 @@ def bot(op):
                    except:
                       pass
 
-            elif ("unban " in msg.text):
+            elif ("Unban " in msg.text):
               if msg.from_ in admin:
                 key = eval(msg.contentMetadata["MENTION"])
                 key["MENTIONEES"][0]["M"]
@@ -2965,7 +2963,7 @@ def bot(op):
                                    except:
                                        cl.sentText(msg.to,"Berhasil Dihapus")
 
-            elif "ban: " in msg.text:       
+            elif "Ban: " in msg.text:       
              if msg.from_ in admin:           
                        nk0 = msg.text.replace("ban: ","")
                        nk1 = nk0.lstrip()
@@ -2990,7 +2988,7 @@ def bot(op):
                                 except:
                                     cl.sendText(msg.to,"Error")
 
-            elif "unban: " in msg.text:             
+            elif "Unban: " in msg.text:             
               if msg.from_ in admin:     
                        nk0 = msg.text.replace("unban: ","")
                        nk1 = nk0.lstrip()
@@ -3020,12 +3018,12 @@ def bot(op):
                 wait["blacklist"] = {}
                 cl.sendText(msg.to,"Sukses Membersihkan Daftar Penjahat")
  
-            elif msg.text in ["ban"]:
+            elif msg.text in ["Ban"]:
 				if msg.from_ in admin:
 					wait["wblacklist"] = True
 					cl.sendText(msg.to,"send contact")	
 				
-            elif msg.text in ["unban"]:
+            elif msg.text in ["Unban"]:
 				if msg.from_ in admin:
 					wait["dblacklist"] = True
 					cl.sendText(msg.to,"send contact")				
@@ -3059,7 +3057,7 @@ def bot(op):
                     for mm in matched_list:
                         cocoa += "\n" + mm + "\n"
                     cl.sendText(msg.to,cocoa + "")
-            elif msg.text.lower() == 'tampol':
+            elif msg.text.lower() == '.tampol':
               if msg.from_ in admin:
                 if msg.toType == 2:
                     group = cl.getGroup(msg.to)
