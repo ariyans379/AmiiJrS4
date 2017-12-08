@@ -1,25 +1,7 @@
 # -*- coding: utf-8 -*-
-#My Script by danrfq
-#Support by My Beloved Team Ꭲ̡̦͎͇͈̘̻̎̉̅́̒͗ͅϵѧᴍ̸̩̟̗͎̯͙̺̺̜̬̙̟̀̑̓͋̐͆͌̓̒́̒͗͒͑̚͟͜ᎶʀҽѧᴛᏴøᴛ̢͓̹̗̘̠̪̖͗̃̄̅̆̽̀̕͜͞
-#i'm Owner Ꭲ̡̦͎͇͈̘̻̎̉̅́̒͗ͅϵѧᴍ̸̩̟̗͎̯͙̺̺̜̬̙̟̀̑̓͋̐͆͌̓̒́̒͗͒͑̚͟͜ᎶʀҽѧᴛᏴøᴛ̢͓̹̗̘̠̪̖͗̃̄̅̆̽̀̕͜͞
-
-import LINETCR
-from LINETCR.lib.curve.ttypes import *
-from datetime import datetime
-import time,random,sys,json,codecs,threading,glob,requests,urllib
-from bs4 import BeautifulSoup
-from gtts import gTTS
-import requests
-import shutil
-import time
-import json
-import html5lib
-import wikipedia
-import goslate
-
-cl = LINETCR.LINE()
-cl.login(qr=True)
-cl.loginResult()
+from linepy import *
+client = LineClient()
+client.log("Auth Token : " + str(client.authToken))
 
 print "Login Success Boss"
 reload(sys)
