@@ -1,7 +1,15 @@
 # -*- coding: utf-8 -*-
+import requests,shutil,random,string,json,tempfile,goslate,pyowm,urllib3,os,urllib,subprocess,threading,sys,codecs
+import unicodedata
+from bs4 import BeautifulSoup
+from random import randint
 from Api import Poll, Talk, channel
+from time import time
+from datetime import datetime
 from lib.curve.ttypes import *
-import tempfile
+from pyowm import OWM
+from threading import Thread
+
 
 def def_callback(str):
     print(str)
@@ -19,6 +27,8 @@ class LINE:
 
   def __init__(self):
     self.Talk = Talk()
+    self._session = requests.session()
+    self._headers = {'X-Line-Application': 'IOSIPAD\t7.14.0\tiPhone OS\t10.12.0', 'X-Line-Access': 'EnFluZcdsoaJHKTTKrI4.nHLUPXn+LvHqyVGWpBRifa.5SXxoyLhvN3xrnJkNvjXPyipTrRWolve5tzjqkV8cPs=', 'User-Agent': 'Line/7.14.0'}
 
   def login(self, mail=None, passwd=None, cert=None, token=None, qr=False, callback=None):
     if callback is None:
@@ -72,10 +82,10 @@ class LINE:
         profile.displayName = contact.displayName
         profile.statusMessage = contact.statusMessage
         profile.pictureStatus = contact.pictureStatus
-        self.updateDisplayPicture(profile.pictureStatus)
+        self.updateProfilePicture(profile.pictureStatus)
         return self.updateProfile(profile)
 
-  def updateDisplayPicture(self, hash_id):
+  def updateProfilePicture(self, hash_id):
         return self.Talk.client.updateProfileAttribute(0, 8, hash_id)
 
   """Operation"""
@@ -97,15 +107,24 @@ class LINE:
   def sendMessage(self, messageObject):
         return self.Talk.client.sendMessage(0,messageObject)
 
+  def removeAllMessages(self, lastMessageId):
+        return self.Talk.client.removeAllMessages(0,lastMessageId)
+
   def sendText(self, Tomid, text):
         msg = Message()
         msg.to = Tomid
         msg.text = text
 
         return self.Talk.client.sendMessage(0, msg)
-  
-  def removeAllMessages(self, lastMessageId):
-	return self.Talk.client.removeAllMessages(0, lastMessageId)
+
+  def kedapkedip(self, tomid, text):
+        M = Message()
+        M.to = tomid
+        t1 = "\xf4\x80\xb0\x82\xf4\x80\xb0\x82\xf4\x80\xb0\x82\xf4\x80\xb0\x82\xf4\x80\xa0\x81\xf4\x80\xa0\x81\xf4\x80\xa0\x81"
+        t2 = "\xf4\x80\x82\xb3\xf4\x8f\xbf\xbf"
+        rst = t1 + text + t2
+        M.text = rst.replace("\n", " ")
+        return self.Talk.client.sendMessage(0, M)
 
   def post_content(self, url, data=None, files=None):
         return self._session.post(url, headers=self._headers, data=data, files=files)
@@ -114,7 +133,8 @@ class LINE:
         M = Message(to=to_, text=None, contentType = 1)
         M.contentMetadata = None
         M.contentPreview = None
-        M_id = self.Talk.client.sendMessage(0,M).id
+        M2 = self.Talk.client.sendMessage(0,M)
+        M_id = M2.id
         files = {
             'file': open(path, 'rb'),
         }
@@ -128,31 +148,51 @@ class LINE:
         data = {
             'params': json.dumps(params)
         }
-        r = self.post_content('https://os.line.naver.jp/talk/m/upload.nhn', data=data, files=files)
-        print r
+        r = self.post_content('https://obs-sg.line-apps.com/talk/m/upload.nhn', data=data, files=files)
         if r.status_code != 201:
-            raise Exception('Upload image failure.')
+            raise Exception('Upload image failed.')
         return True
 
-  def sendImageWithUrl(self, to_, url):
-        """Send a image with given image url
-                                                                    :param url: image url to send
-        """
-        path = '%s/pythonLine-%1.data' % (tempfile.gettempdir(), randint(0, 9))
+  def sendImage2(self, to_, path):
+      M = Message(to=to_,contentType = 1)
+      M.contentMetadata = None
+      M.contentPreview = None
+      M_id = self.Talk.client.sendMessage(M).id
+      files = {
+         'file': open(path, 'rb'),
+      }
+      params = {
+         'name': 'media',
+         'oid': M_id,
+         'size': len(open(path, 'rb').read()),
+         'type': 'image',
+         'ver': '1.0',
+      }
+      data = {
+         'params': json.dumps(params)
+      }
+      r = self.post_content('https://os.line.naver.jp/talk/m/upload.nhn', data=data, files=files)
+      if r.status_code != 201:
+         raise Exception('Upload image failed.')
+      return True
 
-                                                 
+  def sendImageWithURL(self, to_, url):
+        path = '%s/pythonLine-%i.jpg' % (tempfile.gettempdir(), randint(0, 9))
         r = requests.get(url, stream=True)
         if r.status_code == 200:
-            with open(path, 'w') as f:
-                shutil.copyfileobj(r.raw, f)
+            with open(path, 'wb') as f:
+              r.raw.decode_content = True
+              shutil.copyfileobj(r.raw, f)
         else:
-            raise Exception('Download image failure.')  
-        
+            raise Exception('Download image failure.')
         try:
-            self.sendImage(to_, path)
-        except Exception as e:
-            raise e
-
+            cl.self.sendImage(to_, path)
+        except:
+            try:
+              cl.self.sendImage2(to_, path)
+            except Exception as e:
+              cl.sendText(msg.to, str(e))
+            
   def sendAudio(self, to_, path):
         M = Message(to=to_, text=None, contentType = 3)
         M.contentMetadata = None
@@ -179,7 +219,6 @@ class LINE:
 
   def sendAudioWithURL(self, to_, url):
         path = '%s/pythonLine-%i.data' % (tempfile.gettempdir(), randint(0, 9))
-
         r = requests.get(url, stream=True)
         if r.status_code == 200:
             with open(path, 'wb') as f:
@@ -187,50 +226,49 @@ class LINE:
               shutil.copyfileobj(r.raw, f)
         else:
             raise Exception('Download Audio failure.')
-
         try:
             self.sendAudio(to_, path)
         except Exception as e:
           print e
-
+          
   def sendVideo(self, to_, path):
-        M = Message(to=to_,contentType = 2)
-        M.contentMetadata = {
-              'VIDLEN' : '0',
-              'DURATION' : '0'
-        }
-        M.contentPreview = None
-        M_id = self.Talk.client.sendMessage(0,M).id
-        files = {
-            'file': open(path, 'rb'),
-        }
-        params = {
-            'name': 'media',
-            'oid': M_id,
-            'size': len(open(path, 'rb').read()),
-            'type': 'video',
-            'ver': '1.0',
-        }
-        data = {
-            'params': json.dumps(params)
-        }
-        r = self.post_content('https://os.line.naver.jp/talk/m/upload.nhn', data=data, files=files)
-        if r.status_code != 201:
-            raise Exception('Upload image failure.')
-        return True
-
+      M = Message(to=to_,contentType = 2)
+      M.contentMetadata = {
+           'VIDLEN' : '0',
+           'DURATION' : '0'
+       }
+      M.contentPreview = None
+      M_id = self.Talk.client.sendMessage(0,M).id
+      files = {
+         'file': open(path, 'rb'),
+      }
+      params = {
+         'name': 'media',
+         'oid': M_id,
+         'size': len(open(path, 'rb').read()),
+         'type': 'video',
+         'ver': '1.0',
+      }
+      data = {
+         'params': json.dumps(params)
+      }
+      r = self.post_content('https://os.line.naver.jp/talk/m/upload.nhn', data=data, files=files)
+      if r.status_code != 201:
+         raise Exception('Upload image failure.')
+      return True
+    
   def sendVideoWithURL(self, to_, url):
-        path = 'pythonLines.data'
-        r = requests.get(url, stream=True)
-        if r.status_code == 200:
-            with open(path, 'w') as f:
-               shutil.copyfileobj(r.raw, f)
-        else:
-            raise Exception('Download Audio failure.')
-        try:
-            self.sendVideo(to_, path)
-        except Exception as e:
-            raise e
+      path = 'pythonLines.data'
+      r = requests.get(url, stream=True)
+      if r.status_code == 200:
+         with open(path, 'w') as f:
+            shutil.copyfileobj(r.raw, f)
+      else:
+         raise Exception('Download Audio failure.')
+      try:
+         self.sendVideo(to_, path)
+      except Exception as e:
+         raise e
 
   def sendEvent(self, messageObject):
         return self._client.sendEvent(0, messageObject)
@@ -308,20 +346,8 @@ class LINE:
   def getHiddenContactMids(self):
         return self.Talk.client.getHiddenContactMids()
 
-  def CloneContactProfile(self, mid):
-	contact = self.getContact(mid)
-	profile = self.getProfile()
-	profile.displayName = contact.displayName
-	profile.statusMessage = contact.statusMessage
-	profile.pictureStatus = contact.pictureStatus
-	self.updateDisplayPicture(profile.pictureStatus)
-	return self.updateProfile(profile)
 
-  def updateDisplayPicture(self, hash_id):
-	return self.Talk.client.updateProfileAttribute(0, 8, hash_id)
-
-
-  """Group"""                                                                                                                                                         
+  """Group"""
 
   def acceptGroupInvitation(self, groupId):
         return self.Talk.client.acceptGroupInvitation(0, groupId)
@@ -418,8 +444,21 @@ class LINE:
 
   def createAlbum2(self, gid, name, path):
       return self.channel.createAlbum(gid, name, path, oid)
-
-
+    
+  """Personalize"""
+    
+  def cloneContactProfile(self, mid):
+      contact = self.getContact(mid)
+      profile = self.getProfile()
+      profile.displayName = contact.displayName
+      profile.statusMessage = contact.statusMessage
+      profile.pictureStatus = contact.pictureStatus
+      self.updateDisplayPicture(profile.pictureStatus)
+      return self.updateProfile(profile)
+  
+  def updateDisplayPicture(self, hash_id):
+      return self.Talk.client.updateProfileAttribute(0, 8, hash_id)
+    
   def __validate(self, mail, passwd, cert, token, qr):
     if mail is not None and passwd is not None and cert is None:
       return 1
@@ -438,10 +477,8 @@ class LINE:
 
       prof = self.getProfile()
 
-      print("==============[Aan Jutawan]==============")
-      print("     Thanks for Aan jutawan ")
-      print("=====================================")
-      print("mid -> " + prof.mid)
-      print("name -> " + prof.displayName)
-      print("authToken -> " + self.authToken)
-      print("cert -> " + self.cert if self.cert is not None else "")
+      print("Suscess Masuk")
+      print("Mid 		: " + prof.mid)
+      print("Name 		: " + prof.displayName)
+      print("AuthToken 	: " + self.authToken)
+      print("Cert 		: " + self.cert if self.cert is not None else "")
