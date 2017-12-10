@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-import requests,shutil,random,string,json,tempfile,goslate,pyowm,urllib3,os,urllib,subprocess,threading,sys,codecs
+import requests,shutil,random,string,json,tempfile,goslate,urllib3,os,urllib,subprocess,threading,sys,codecs
 import unicodedata
 from bs4 import BeautifulSoup
 from random import randint
